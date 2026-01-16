@@ -15,8 +15,8 @@ For a repo to be added to the list of documents, the following should be true in
 * Daily, or on a check in, the update action runs
 * The Action using thg `gh` command to search for all public sparkfun respositories that have the topic `sparkfun-tutorial`
 * For each repositoriy found, the repo URL, About website and About description are retrieved
-* The results of the query are writting to the file `gsg.json` as an array of json objects.
-* The updated `gsg.json` file is checkin to this repo and the landing page is rebuilt (automtically by GitHub)
-* When the file `index.html` is loaded by a browser (for the landing page), it reads the file `gsg.json` and renders the documentation list table using javascript
+* The results of the query are writting to the file `tutorial_repos.json` as an array of json objects.
+* The updated `tutorial_repos.json` file is checkin to this repo and the landing page is rebuilt (automtically by GitHub)
+* When the file `index.html` is loaded by a browser (for the landing page), it reads the file `tutorial_repos.json` and renders the documentation list table using javascript
 
   

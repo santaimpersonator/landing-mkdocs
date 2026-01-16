@@ -33,7 +33,7 @@ jobs:
       - name: gh command
         uses: nick-fields/retry@v3
         with:
-          command: gh search repos topic:sparkfun-tutorial --owner sparkfun --visibility public --sort updated --order desc --limit 1000 --json name,url,homepage,description > gsg.json
+          command: gh search repos topic:sparkfun-tutorial --owner sparkfun --visibility public --sort updated --order desc --limit 1000 --json name,url,homepage,description > docs/json/tutorial_repos.json
           max_attempts: 3
           retry_wait_seconds: 180
           timeout_minutes: 2
@@ -43,13 +43,13 @@ jobs:
         run: |
           git config --global user.name 'SparkFun Automated Action'
           git config --global user.email 'your-username@users.noreply.github.com'
-          git diff --exit-code gsg.json
+          git diff --exit-code docs/json/tutorial_repos.json
         continue-on-error: true
 
-      - name: Check-in gsg updates
+      - name: Check-in updates
         if: steps.has_updates.outcome != 'success'
         run: |
-          git add gsg.json
+          git add docs/json/tutorial_repos.json
           git commit -m "daily update"
           git push
 
